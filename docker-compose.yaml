@@ -1,0 +1,25 @@
+services:
+  ooniprobe:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ooniprobe
+    volumes:
+      - ./data:/root/.ooniprobe
+    environment:
+      - TZ=Europe/Madrid
+    restart: unless-stopped
+    command: [ "ooniprobe", "run", "unattended" ]
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    networks:
+      - ooni-net
+    mem_limit: 128m
+
+networks:
+  ooni-net:
+    enable_ipv6: true
+
+    # Modify for different OONI Probe tests
+    # For example, command: ["ooniprobe", "run", "websites"]
