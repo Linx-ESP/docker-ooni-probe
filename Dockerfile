@@ -1,7 +1,14 @@
+# No specific reason for this image. Should probably change it at some point
+# Same CVEs as debian because they don't do patches
+
 FROM bitnami/minideb:bookworm
-# switch to root during setup
+ARG APP_UID=1000 \
+    APP_GID=1000
+
 USER root
-# setup your app
+
+# Copied from https://ooni.org/install/cli/ubuntu-debian/ 
+
 RUN set -ex; \
     apt update && apt install -y ca-certificates curl \
     && install -m 0755 -d /etc/apt/keyrings \
@@ -12,3 +19,7 @@ RUN set -ex; \
     && apt install -y ooniprobe-cli \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Something about openshift not liking fixed UIDs, idk
+USER ${APP_UID}:${APP_GID}
+ENTRYPOINT [ "/usr/bin/ooniprobe", "run", "unattended" ]
