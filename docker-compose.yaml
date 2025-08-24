@@ -7,17 +7,13 @@ services:
     environment:
       - TZ=Europe/Madrid
     restart: unless-stopped
-    volumes:
-      - "./data:/.ooniprobe" # You will need to edit config.json inside here
     dns:
       - 1.1.1.1
       - 1.0.0.1
-      - 2606:4700:4700::1111
-      - 2606:4700:4700::1001
     networks:
       - ooni-net
     mem_limit: 128m
 
 networks:
   ooni-net:
-    enable_ipv6: true  # Some blocks only affect ipv4 and not ipv6, so ooni benefits if your setup ipv6 properly
+    enable_ipv6: true
