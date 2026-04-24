@@ -16,7 +16,7 @@
 
   FROM golang:1.23.7-alpine AS build
   COPY --from=util-bin / /
-  ARG APP_VERSION=3.26 \
+  ARG APP_VERSION=3.29 \
       BUILD_ROOT \
       BUILD_BIN \
       TARGETARCH=amd64 \
