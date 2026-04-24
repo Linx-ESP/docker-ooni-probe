@@ -66,19 +66,19 @@ services:
       - run
       - websites
       - --input-file
-      - /config/urls.txt  # One URL per line, doesn't need "https://" afaik
+      - /config/urls.txt  # One URL per line, it does need "https://"
     volumes:
       - /path/tou/your/ooni-probe/config:/config
 # Feel free to add any of the /tmp or VLAN stuff from the previous
 ```
 ### Example `urls.txt`
 ``` hosts
-dl.tradingpaints.com
-dl1.tradingpaints.gg
-dl2.tradingpaints.gg
-showroom-assets.tradingpaints.gg
-update.tradingpaints.gg
-fetch.tradingpaints.gg
-www.steamgriddb.com
-www.pcgamingwiki.com
+https://dl.tradingpaints.com
+https://dl1.tradingpaints.gg
+https://dl2.tradingpaints.gg
+https://showroom-assets.tradingpaints.gg
+https://update.tradingpaints.gg
+https://fetch.tradingpaints.gg
+https://www.steamgriddb.com
+https://www.pcgamingwiki.com
 ```
