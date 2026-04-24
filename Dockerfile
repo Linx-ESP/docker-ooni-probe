@@ -14,7 +14,7 @@
 # ║                       BUILD                         ║
 # ╚═════════════════════════════════════════════════════╝
 
-  FROM golang:1.23.7-alpine AS build
+  FROM golang:1.24-alpine AS build
   COPY --from=util-bin / /
   ARG APP_VERSION=3.29 \
       BUILD_ROOT \
