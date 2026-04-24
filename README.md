@@ -2,7 +2,7 @@ Runs ```ooniprobe run unattended``` on its own
   
 Rootless and distroless
 
-# Example dockker compose: ```run unattended```
+# Example docker compose: ```run unattended```
 
 ``` yaml
 services:
@@ -45,7 +45,7 @@ networks:
           ip_range: "10.14.3.0/24"
           gateway: "10.14.3.1"
 ```
-# Example dockker compose: ```run websites``` aka `LaLiga overreach special`
+# Example docker compose: ```run websites``` aka `LaLiga overreach special`
 
 ``` yaml
 services:
